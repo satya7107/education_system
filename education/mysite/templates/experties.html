@@ -1,0 +1,176 @@
+{% extends 'include/base.html' %}
+{% block childblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experties</title>
+    <link rel="stylesheet" href="{% static 'css/experties.css' %}"/>
+    <link rel="stylesheet" href="{% static 'js/experties.js' %}"/>
+</head>
+<body>
+  <style type="text/css">
+
+
+
+    /* === BASE HEADING === */ 
+    
+    h3 {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      font-family: "Raleway", sans-serif;
+      font-weight: 300;
+      font-size: 40px;
+      color: #080808;
+      -webkit-transition: all 0.4s ease 0s;
+      -o-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s;
+    }
+    
+    h3 span {
+      display: block;
+      font-size: 0.5em;
+      line-height: 1.3;
+    }
+    h3 em {
+      font-style: normal;
+      font-weight: 600;
+    }
+    .twelve{
+      margin-top: 40px;
+    }
+    
+    
+    .twelve h3 {
+      font-size:26px; font-weight:700;  letter-spacing:1px; text-transform:uppercase; width:160px; text-align:center; margin:auto; white-space:nowrap; padding-bottom:13px;
+    }
+    .twelve h3:before {
+        background-color: #c50000;
+        content: '';
+        display: block;
+        height: 3px;
+        width: 75px;
+        margin-bottom: 5px;
+    }
+    .twelve h3:after {
+        background-color: #c50000;
+        content: '';
+        display: block;
+      position:absolute; right:0; bottom:0;
+        height: 3px;
+        width: 75px;
+        margin-bottom: 0.25em;
+    }
+    
+    
+    
+    </style>    
+
+
+
+
+
+
+<center><h1>Jwell Of Odisha Educations</h1></center>
+
+
+
+{% for all in all_experties %}
+
+
+<div class="twelve">
+  <h3>{{all.designation }}</h3>
+</div>
+
+<div class="hover03 column">
+  <div>
+    
+    <figure><a href="{% url 'chair_experties' all.id %}"><img src="{{ all.image.url }}" /></a></figure>
+    <span>{{ all.firstname }} {{ all.lastname }}</span>
+   
+  </div>
+
+</div>
+{% endfor %}
+
+
+
+<div class="twelve">
+  <h3>CEO</h3>
+</div>
+<div class="hover03 column">
+  {% for ceos in experties_ceo %}
+    <div>
+      <figure><a href="{% url 'ceo_experties' ceos.id %}"><img src="{{ ceos.image.url }}" /></a></figure>
+      <span>{{ceos.firstname}} {{ceos.lastname}}</span>
+    </div>
+    {% endfor%}
+</div>
+
+
+
+<div class="twelve">
+  <h3>CHANCELLOR</h3>
+</div>
+<div class="hover03 column">
+  {% for chan in experties_chance %}
+    <div>
+      <figure><a href="{%url 'chanc_experties' chan.id %}"><img src="{{ chan.image.url }}" /></a></figure>
+      <span>{{ chan.firstname }} {{ chan.lastname }}</span>
+    </div>
+    {% endfor %}
+
+</div>
+
+  
+  
+<div class="twelve">
+  <h3>PRINCIPLE</h3>
+</div>
+  <div class="hover03 column">
+    {% for exprin in experties_prince %}
+      <div>
+        <figure><a href="{% url 'princ_experties' exprin.id %}"><img src="{{ exprin.image.url }}" /></a></figure>
+        <span>{{ exprin.firstname }} {{ exprin.lastname }}</span>
+      </div>
+      {% endfor %}
+  
+  </div>
+
+
+<div class="twelve">
+  <h3>VICE-PRINCIPLE</h3>
+</div>
+
+<div class="hover03 column">
+  {% for vice in experties_vice %}
+  <div>
+    <figure><a href="{% url 'vprinc_experties' vice.id %}"><img src="{{ vice.image.url }}" /></a></figure>
+    <span>{{ vice.firstname }} {{ vice.lastname }}</span>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+<div class="twelve">
+  <h3>TOP-FACULTY</h3>
+</div>
+
+<div class="hover03 column">
+  {%  for fact in experties_fact%}
+    <div>
+      <figure><a href="{% url 'fact_experties' fact.id %}"><img src="{{ fact.image.url }}" /></a></figure>
+      <span>{{ fact.firstname }} {{fact.lastname}}</span>
+    </div>
+
+   {% endfor %} 
+</div>
+
+<br><br><br><br>
+</body>
+</html>
+{% endblock %}

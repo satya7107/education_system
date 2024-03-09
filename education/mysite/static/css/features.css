@@ -1,0 +1,10 @@
+.text-bg-warning {
+    color: #000!important;
+    background: rgb(58,53,148);
+    background: linear-gradient(90deg, rgba(58,53,148,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+}
+.nav-pills {
+    --bs-nav-pills-border-radius: var(--bs-border-radius);
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #0dfdaf;
+}

@@ -1,0 +1,37 @@
+{% extends 'include/base.html' %}
+{% block childblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="body1">
+    <section id="contact">
+        <div class="content">
+          <div id="form">
+            <form action="" id="contactForm" method="post">
+              <span>Name</span>
+              <input type="text" name="name" class="name" placeholder="Enter your name" tabindex=1 />
+              <span>Email</span>
+              <input type="text" name="email" class="email" placeholder="Enter your email" tabindex=2 />
+              <span id="captcha">Captcha</span>
+              <input type="text" name="captcha" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 />
+              <span>Message</span>
+              <textarea class="message" placeholder="Enter your message" tabindex=4></textarea>
+              <input type="submit" name="submit" value="Send e-mail" class="submit" tabindex=5>
+            </form>
+          </div>
+    </section>
+</div>
+</body>
+</html>
+
+
+
+{% endblock %}
