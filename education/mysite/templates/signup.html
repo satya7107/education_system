@@ -15,36 +15,37 @@
 <div id="body-box">
 <div class="login-box">
   <h2>sign up</h2>
-  <form>
+  <form method="post">
+    {% csrf_token %}
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="username" required="">
       <label>Username</label>
     </div>
     <div class="user-box">
-        <input type="email" name="" required="">
+        <input type="email" name="email" required="">
         <label>Enter your mail</label>
       </div>
     <div class="user-box">
-      <input type="password" name="" required="">
+      <input type="password" name="password" required="">
       <label>Password</label>
     </div>
     <div class="user-box">
-      <input type="tel" name="" required="">
+      <input type="tel" name="contact" required="">
 
       <label>contact</label>
     </div>
   <div class="user-box">
-    <input type="file"  name="" required="">
+    <input type="file"  name="image" required="">
     <label> </label>
   </div>
 
   <div class="user-box">
       
-  <select name="" id="" required="">
+  <select name="roll_name" id="" required="">
     <option value="" disabled selected hidden ></option>
-    <option value="">User</option>
-    <option value="">Faculty</option>
-    <option value="">Student</option>
+    <option value="user">User</option>
+    <option value="faculty">Faculty</option>
+    <option value="student">Student</option>
   </select>
       <label>Rollname</label>
     </div>
@@ -53,7 +54,7 @@
       <span></span>
       <span></span>
       <span></span>
-      sign up
+      <input type="submit" value="signup">
     </a>
     <div class="flt"><a href="login">
       <span></span>
@@ -63,11 +64,11 @@
       Login
     </a> </div>
   </form>
-  
+ <div style="color: blanchedalmond;"> {{ output }}</div>
 </div>
 </div> <br/>
 
-<br/>
+
 <br/><br/>
 <br/>
 <br/>

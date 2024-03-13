@@ -27,3 +27,16 @@ admin.site.register(all_experties_vice)
 
 from .models import all_experties_fact
 admin.site.register(all_experties_fact)
+
+
+from .models import uregister
+class regadmin(admin.ModelAdmin):
+    list_display=('username','email')
+admin.site.register(uregister,regadmin)
+
+
+
+from .models import main_register
+class mregadmin(admin.ModelAdmin):
+    list_display=('username','email','rollname','contact')
+admin.site.register(main_register,mregadmin)

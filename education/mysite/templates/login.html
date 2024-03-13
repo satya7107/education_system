@@ -16,23 +16,24 @@
 <div id="body-box">
 <div class="login-box">
   <h2>Login</h2>
-  <form>
+  <form method="post">
+    {% csrf_token %}
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="username" required="">
       <label>Username</label>
     </div>
     <div class="user-box">
-      <input type="password" name="" required="">
+      <input type="password" name="password" required="">
       <label>Password</label>
     </div>
 
   <div class="user-box">
       
-  <select name="password" id="">
+  <select name="rollname" id="">
     <option value="" disabled selected hidden>Select</option>
-    <option value="">User</option>
-    <option value="">Faculty</option>
-    <option value="">Student</option>
+    <option value="user">User</option>
+    <option value="faculty">Faculty</option>
+    <option value="student">Student</option>
   </select>
       <label>Rollname</label>
     </div>
@@ -41,8 +42,9 @@
       <span></span>
       <span></span>
       <span></span>
-      Login
+      <input type="submit" value="login">
     </a>
+    <a href="/experties">new user</a>
     <div class="flt"><a href="signup">
       <span></span>
       <span></span>
