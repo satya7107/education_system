@@ -1,19 +1,11 @@
 {% extends 'include/base.html' %}
 {% block childblock %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/homepg.css' %}"/>
     <title>homepage</title>
-</head>
+
 <body style="padding:0px; margin:0px; background-color:#fff;font-family:arial,helvetica,sans-serif,verdana,'Open Sans'">
 
-    <!-- #region Jssor Slider Begin -->
-    <!-- Generator: Jssor Slider Composer -->
-    <!-- Source: https://www.jssor.com/demos/full-width-slider.slider/=edit -->
     <script src="{% static 'js/jssor.slider-28.1.0.min.js' %}" type="text/javascript"></script>
     <script type="text/javascript">
         window.jssor_1_slider_init = function() {
@@ -226,6 +218,16 @@
     </script>
     <!-- #endregion Jssor Slider End -->
 
+
+    <!-- icon -->
+    <div class="icon">
+        <i class="fa fa-book"></i>
+        <i class="fa fa-user"></i>
+        <i class="fa fa-school"></i>
+        <i class="fa fa-address-book" ></i>
+        <i class="fa fa-envelope-open-o"></i>
+    </div>
+
 <!--------data------->
 <div class="bg-dark text-secondary px-4 py-5 text-center">
     <div class="py-5">
@@ -355,6 +357,8 @@
         <label class="list-group-item py-3 pe-5" for="listGroupRadioGrid1">
           <strong class="fw-semibold">Programme</strong>
           <span class="d-block small opacity-75">Annual day 2023 comming soon</span>
+          <i style="float: right; margin-top: -30px; margin-right: -30px; color: green; font-size: 30px;" class="fa fa-pencil-square"></i>
+        
         </label>
       </div>
   
@@ -362,8 +366,10 @@
         <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio" name="listGroupRadioGrid" id="listGroupRadioGrid2" value="">
         <label class="list-group-item py-3 pe-5" for="listGroupRadioGrid2">
           <strong class="fw-semibold">2nd sem result </strong>
-          <span class="d-block small opacity-75">Ref-23/24/25:- Result will declare on feb 14</span>
+          <span class="d-block small opacity-75">Ref-23/24/25:- Result will declare soon</span>
+          <i style="float: right; margin-top: -30px; margin-right: -30px; color: green; font-size: 30px;" class="fa fa-pencil-square"></i>
         </label>
+        
       </div>
   
       <div class="position-relative">
@@ -371,6 +377,8 @@
         <label class="list-group-item py-3 pe-5" for="listGroupRadioGrid3">
           <strong class="fw-semibold">Q3 Earning</strong>
           <span class="d-block small opacity-75">Come and Join Meet up</span>
+          <i style="float: right; margin-top: -30px; margin-right: -30px; color: green; font-size: 30px;" class="fa fa-pencil-square"></i>
+        
         </label>
       </div>
   
@@ -379,6 +387,8 @@
         <label class="list-group-item py-3 pe-5" for="listGroupRadioGrid4">
           <strong class="fw-semibold">Discount</strong>
           <span class="d-block small opacity-75">MCA/BCA are available 20% discounr</span>
+          <i style="float: right; margin-top: -30px; margin-right: -30px; color: green; font-size: 30px;" class="fa fa-pencil-square"></i>
+        
         </label>
       </div>
     </div>
@@ -389,6 +399,5 @@
 
 
 
-</body>
-</html>
+
 {% endblock %}

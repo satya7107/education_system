@@ -30,7 +30,7 @@ h2{
     justify-content: center;
     box-shadow: 0 1px 1px #000;
   }
-  img {
+  .container4 img {
     background-position: top;
     background-size: cover;
     height: 200px;
@@ -39,7 +39,7 @@ h2{
     cursor: pointer;
     transition: all 0.2s;
   }
-  img:hover {
+  .container4 img:hover {
     box-shadow: none;
     transform: scale(1.1);
   }

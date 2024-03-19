@@ -43,7 +43,7 @@ urlpatterns = [
 
     path('base',anoviews.base),
 
-    path('',anoviews.homepage),
+    path('',anoviews.homepage,name='homepage'),
 
     path('features',anoviews.features),
 

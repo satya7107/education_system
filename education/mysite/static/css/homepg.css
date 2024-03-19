@@ -75,3 +75,30 @@ background: linear-gradient(90deg, rgba(238,174,202,0.9724264705882353) 0%, rgba
 
 
 
+.icon {
+  height: 200px;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+
+
+.icon i{ 
+  font-size: 70px;
+  margin:auto;
+  padding-left:auto;
+  background: linear-gradient(90deg, rgba(20,30,48,1) 0%, rgba(9,235,249,1) 100%);
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text;
+  color: transparent;
+
+}
+
+
+.icon i:hover{
+  background: linear-gradient(90deg, rgba(9,235,249,1) 0%, rgba(20,30,48,1) 100%);
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text;
+  color: transparent;
+}
