@@ -60,9 +60,9 @@ def login(request):
         password=request.POST['password']
         try:
             ob=main_register.objects.get(username=username,password=password)
-            request.session['username']=ob.username
-            request.session['password']=ob.password
-            request.session['rollname']=ob.rollname
+            request.session["username"]=ob.username
+            request.session["password"]=ob.password
+            request.session["rollname"]=ob.rollname
             if ob.rollname=="user":
                 return render(request,'home.html',{'user': ob})
             elif ob.rollname=="student":
@@ -84,7 +84,7 @@ def signup(request):
           password=request.POST['password']
           image=request.POST['image']
           reg_obj=main_register.objects.create(username=username,email=email,contact=contact,rollname=roll_name,password=password,image=image)
-          reg_obj.save()
+          reg_obj.save();
           return render(request,'signup.html',{'output':"register successfull/login"})
 
      return render(request,'signup.html')
