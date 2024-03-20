@@ -89,3 +89,53 @@ def signup(request):
 
      return render(request,'signup.html')
 
+#harryviews here
+def mymain(request):
+    return render(request,'mymain.html')
+def analyze(request):
+    textobj=request.GET.get('text', 'default')
+    removepunc=request.GET.get('removepunc', 'off')
+    capitalize=request.GET.get('capitalize', 'off')
+    removeline=request.GET.get('removeline','off')
+    
+    if removepunc=="on":
+        analyze=""
+        punctuations='''!@#$%^&*(){}[]:";'<>,.? '''
+        for char in textobj:
+            if char not in punctuations:
+                analyze=analyze+char
+        params={
+        'purpose':"punctuation removed",
+        'analyze': analyze
+        }
+        return render(request,'analyze.html',params)
+    
+
+    elif (capitalize == "on"):
+        analyze=""
+        for char in textobj:
+            analyze=analyze+char.upper()
+            
+        params={
+
+        'purpose':"capitalized",
+        'analyze': analyze
+        }
+
+        return render(request,'analyze.html',params)      
+    elif (removeline == "on"):
+        analyze=""
+        for char in textobj:
+            if char !="\n":
+                analyze=analyze+char.upper()
+        params={
+            'purpose':"remove line",
+            'analyze': analyze
+        }     
+        return render (request,'analyze.html',params)       
+
+    
+
+    else:
+        return HttpResponse("error")           
+    

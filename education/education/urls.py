@@ -65,5 +65,10 @@ urlpatterns = [
     
     path('login',anoviews .login),
 
-    path('signup',anoviews.signup)
+    path('signup',anoviews.signup),
+
+    #harry course
+    path('mymain/',anoviews.mymain,name='mymain'),
+    path('analyze/',anoviews.analyze,name='analyze'),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
