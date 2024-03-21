@@ -7,11 +7,12 @@
 </head>
 <body>
     <h1>you can analyze your text here</h1>
-    <form action="/analyze" method="get">
+    <form action="/analyze/" method="POST">
+        {% csrf_token %}
         <textarea name="text" style="height: 93px; width: 721px; margin:0px; padding:0px;"></textarea><br>
         <input type="checkbox" name="removepunc">removepunc <br>
         <input type="checkbox" name="capitalize">captitalize <br>
-        <input type="checkbox" name="removeline">removeline <br>*
+        <input type="checkbox" name="removeline">removeline <br>
         <input type="submit" value="analyze">
     </form>
 </body>

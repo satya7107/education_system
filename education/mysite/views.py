@@ -93,10 +93,10 @@ def signup(request):
 def mymain(request):
     return render(request,'mymain.html')
 def analyze(request):
-    textobj=request.GET.get('text', 'default')
-    removepunc=request.GET.get('removepunc', 'off')
-    capitalize=request.GET.get('capitalize', 'off')
-    removeline=request.GET.get('removeline','off')
+    textobj=request.POST.get('text', 'default')
+    removepunc=request.POST.get('removepunc', 'off')
+    capitalize=request.POST.get('capitalize', 'off')
+    removeline=request.POST.get('removeline','off')
     
     if removepunc=="on":
         analyze=""
@@ -108,7 +108,7 @@ def analyze(request):
         'purpose':"punctuation removed",
         'analyze': analyze
         }
-        return render(request,'analyze.html',params)
+        analyze=textobj
     
 
     elif (capitalize == "on"):
@@ -122,7 +122,7 @@ def analyze(request):
         'analyze': analyze
         }
 
-        return render(request,'analyze.html',params)      
+        analyze=textobj      
     elif (removeline == "on"):
         analyze=""
         for char in textobj:
@@ -132,10 +132,10 @@ def analyze(request):
             'purpose':"remove line",
             'analyze': analyze
         }     
-        return render (request,'analyze.html',params)       
-
+        analyze=textobj       
+    if(removepunc!="on" and capitalize!="on" and removeline!="on"):
+        return HttpResponse("error")
     
 
-    else:
-        return HttpResponse("error")           
+    return render (request,'analyze.html',params)          
     
