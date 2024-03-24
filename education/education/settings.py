@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'todo_app',
     'addtask',
     'todo_register',
+    'shop',
+    'blog',
 ]
 
 MIDDLEWARE = [
