@@ -1,10 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import products
+from math import ceil
 # Create your views here.
 
 def shopindex(requet):
-    return render(requet, 'shopindex.html')
+    prodobj=products.objects.all()
+    n=len(prodobj)
+    nSlides=n//4 +ceil((n/4)+(n//4) )
+
+
+    context={
+        'products':prodobj,
+        'no_of_slides':nSlides,
+        'range':range(1,nSlides),
+    }
+    return render(requet, 'shopindex.html',context)
 
 def about(requet):
     return HttpResponse("iam about")

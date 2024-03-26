@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.shortcuts import HttpResponse
 from .models import employee,student,user,all_experties,all_experties_ceo,all_experties_chanc,all_experties_prince,all_experties_vice,all_experties_fact
 from .models import main_register
@@ -55,7 +55,8 @@ def gallery(request):
      return render(request,'gallery.html') 
 
 def login(request):
-     if request.method == "POST":
+    
+    if request.method == "POST":
         username=request.POST['username']
         password=request.POST['password']
         try:
@@ -64,16 +65,18 @@ def login(request):
             request.session["password"]=ob.password
             request.session["rollname"]=ob.rollname
             if ob.rollname=="user":
-                return render(request,'home.html',{'user': ob})
+                return render(request,'homepage.html',{'user': ob})
             elif ob.rollname=="student":
                 details= main_register.objects.all()
-                return render(request,'home.html',{"data":details,'user':ob})
+                return render(request,'homepage.html',{"data":details,'user':ob})
             elif ob.rollname == "faculty":
                 odetails=main_register.objects.all()
-                return render(request,'home.html',{"data1":odetails,'faculty':ob})
+                return render(request,'homepage.html',{"data1":odetails,'faculty':ob})
+        except main_register.DoesNotExist:
+            return render(request, 'login.html', {'data': "Invalid username or password"})    
         except Exception as e:
             return render(request,'login.html',{'data':"invalid"+str(e)})
-        return render(request,'login.html')
+    return render(request,'login.html')
 
 def signup(request):
      if request.method ==  "POST":
