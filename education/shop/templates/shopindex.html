@@ -11,7 +11,7 @@
 
   <!--        slideshow starts here-->
   {% for prodobj, range, nSlides in allprods %}
-  <h1 class="my-4">{{prodobj.0.category}}</h1>
+  <h4 class="my-4">{{prodobj.0.category}}</h4>
   <div id="demo{{forloop.counter}}" class="carousel slide my-3" data-ride="carousel">'
       <ul class="carousel-indicators">
           <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
@@ -29,7 +29,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{ prodobj.0.product_name}}</h5>
                 <p class="card-text">{{ prodobj.0.desc }}</p>
-                <a href="#" class="btn btn-primary">Add to cart</a>
+                <button id="pr{{prodobj.0.id}}" class="btn btn-primary cart">Add to cart</button>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{ i.product_name}}</h5>
                 <p class="card-text">{{ i.desc }}</p>
-                <a href="#" class="btn btn-primary">Add to cart</a>
+                <button id="pr{{i.id}}" class="btn btn-primary cart">Add to cart</button>
               </div>
             </div>
           </div>
@@ -67,6 +67,34 @@
 
 {% endfor %}
 </div>
+{% endblock %}
+
+{% block js %}
+<script>
+  console.log('working');
+  if (localStorage.getItem('cart')==null){
+  var cart={};
+  }
+  else {
+  cart=JSON.parse(localStorage.getItem('cart'));
+  
+  }
+  $('.cart').click(function(){
+    console.log('clicked');
+    var idstr=this.id.toString();
+    console.log(idstr);
+    if(cart[idstr]!=undefined){
+      cart[idstr]=cart[idstr]+1;
+    }
+    else {
+      cart[idstr]=1;
+    }
+    console.log(cart);
+    localStorage.setItem('cart',JSON.stringify(cart));
+    document.getElementById('cart').innerHTML=Object.keys(cart).length;
+  });
+</script>
+
 {% endblock %}
 
     
