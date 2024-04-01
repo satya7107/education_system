@@ -3,10 +3,11 @@ from .import views as sviews
 
 urlpatterns = [
             path('',sviews.shopindex,name='shopindex'),
-            path('about/',sviews.about,name='about'),
-            path('contact/',sviews.contact,name='contact'),
-            path('tracker/',sviews.tracker,name='tracker'),
-            path('search/',sviews.search,name='search'),
-            path('productview/',sviews.productview,name='productview'),
-            path('checkout/',sviews.checkout,name='checkout'),
+            path('sabout/',sviews.sabout,name='sabout'),
+            path('scontact/',sviews.scontact,name='scontact'),
+            path('stracker/',sviews.stracker,name='stracker'),
+            path('ssearch/',sviews.ssearch,name='ssearch'),
+            path('sproductview/<int:myid>/',sviews.sproductview,name='sproductview'),
+            path('scheckout/',sviews.scheckout,name='scheckout'),
+            path('sbase',sviews.sbase),
 ]

@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import products
+from .models import products,scontact
 from math import ceil
 # Create your views here.
 
-def shopindex(requet):
+def shopindex(request):
     # # prodobj=products.objects.all()
     # n=len(prodobj)
     # nSlides=n//4 +ceil((n/4)+(n//4) )
@@ -14,7 +14,7 @@ def shopindex(requet):
     for cat in cats:
         prod=products.objects.filter(category=cat)
         n=len(prod)
-        nSlides=n//4 +ceil((n/4)+(n//4) )
+        nSlides=n//4 +ceil((n/4)-(n//4) )
         allprods.append([prod,range(1,nSlides),nSlides])
 
     
@@ -28,22 +28,36 @@ def shopindex(requet):
     context={
         "allprods":allprods
     }
-    return render(requet, 'shopindex.html',context)
+    return render(request, 'shopindex.html',context)
 
-def about(requet):
-    return HttpResponse("iam about")
+def sabout(request):
+    return render(request, 'sabout.html')
 
-def contact(requet):
-    return HttpResponse("iam contact")
+def scontact(request):
+    if request.method=='POST':
+        name=request.POST.get('name','')
+        email=request.POST.get('email','')
+        phone=request.POST.get('phone','')
+        desc=request.POST.get('desc','')
+        contobj=scontact(name=name,email=email,phone=phone,desc=desc)
+        contobj.save()
+    return render(request,'scontact.html')
 
-def tracker(requet):
-    return HttpResponse("iam tracker")
+def stracker(request):
+    return render(request, 'stracker.html')
 
-def search(requet):
-    return HttpResponse("iam search")
+def ssearch(request):
+    return render(request, 'ssearch.html')
 
-def productview(requet):
-    return HttpResponse("iam productview")
+def sproductview(request,myid):
+    all_products=products.objects.filter(id=myid)
+    context={
+        "myproducts": all_products[0]
+    }
+    return render(request, 'sproductview.html',context)
 
-def checkout(requet):
-    return HttpResponse("iam checkout")
+def scheckout(request):
+    return render(request, 'scheckout.html')
+
+def sbase(request):
+    return render(request, 'sbase.html')
