@@ -4,7 +4,7 @@ from .import views as sviews
 urlpatterns = [
             path('',sviews.shopindex,name='shopindex'),
             path('sabout/',sviews.sabout,name='sabout'),
-            path('scontact/',sviews.scontact,name='scontact'),
+            path('scont/',sviews.scont,name='scont'),
             path('stracker/',sviews.stracker,name='stracker'),
             path('ssearch/',sviews.ssearch,name='ssearch'),
             path('sproductview/<int:myid>/',sviews.sproductview,name='sproductview'),

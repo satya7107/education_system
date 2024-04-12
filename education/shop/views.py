@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import products,scontact
+from .models import products,scontact,sorder
 from math import ceil
 # Create your views here.
 
@@ -33,15 +33,15 @@ def shopindex(request):
 def sabout(request):
     return render(request, 'sabout.html')
 
-def scontact(request):
-    if request.method=='POST':
+def scont(request):
+    if request.method == 'POST':
         name=request.POST.get('name','')
         email=request.POST.get('email','')
         phone=request.POST.get('phone','')
         desc=request.POST.get('desc','')
         contobj=scontact(name=name,email=email,phone=phone,desc=desc)
         contobj.save()
-    return render(request,'scontact.html')
+    return render(request,'scont.html')
 
 def stracker(request):
     return render(request, 'stracker.html')
@@ -54,9 +54,33 @@ def sproductview(request,myid):
     context={
         "myproducts": all_products[0]
     }
+
+
+
+
+
+
+
+
+
+    
     return render(request, 'sproductview.html',context)
 
 def scheckout(request):
+    if request.method == "POST":
+        items_json=request.POST.get('itemJson')
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        address=request.POST.get('address1') + " " + request.POST.get('address2')
+        Zip_code=request.POST.get('Zip_code')
+        state=request.POST.get('state')
+        city=request.POST.get('city')
+        phone=request.POST.get('phone')
+        oborder=sorder(items_json=items_json,name=name,email=email,address=address,Zip_code=Zip_code,state=state,city=city,phone=phone)
+        oborder.save()
+        thank=True
+        mid=sorder.order_id
+        return render(request, 'scheckout.html',{'thank':thank ,'mid':mid})
     return render(request, 'scheckout.html')
 
 def sbase(request):

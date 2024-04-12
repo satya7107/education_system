@@ -69,12 +69,12 @@ $('.divpr').on('click', 'button.cart', function() {
     var idstr = this.id.toString();
     console.log(idstr);
     if (cart[idstr] != undefined) {
-      qty=cart[idstr][0] +1;
- 
+        qty = cart[idstr][0] + 1;
+
     } else {
-      qty=1;
-      name=document.getElementById('name'+idstr).innerHTML;
-        cart[idstr] = [qty,name];
+        qty = 1;
+        name = document.getElementById('name' + idstr).innerHTML;
+        cart[idstr] = [qty, name];
     }
     updateCart(cart);
 

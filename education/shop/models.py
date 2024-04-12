@@ -24,3 +24,16 @@ class scontact(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.name
+
+class sorder(models.Model):
+    order_id=models.AutoField(primary_key=True)
+    items_json=models.CharField(max_length=5000)
+    name=models.CharField(max_length=90)
+    email=models.CharField(max_length=90)
+    address=models.CharField(max_length=90)
+    city=models.CharField(max_length=90)
+    state=models.CharField(max_length=90)
+    Zip_code=models.CharField(max_length=90)
+    phone=models.CharField(max_length=90,default="")
+    def __str__(self):
+        return self.name

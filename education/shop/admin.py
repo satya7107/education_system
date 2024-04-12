@@ -10,3 +10,10 @@ from .models import scontact
 class contadmin(admin.ModelAdmin):
     list_display = ('name', 'email','desc')
 admin.site.register(scontact,contadmin)
+
+
+
+from .models import sorder
+class orderadmin(admin.ModelAdmin):
+    list_display=('order_id','name','state')
+admin.site.register(sorder,orderadmin)
