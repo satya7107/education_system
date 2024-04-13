@@ -1,41 +1,105 @@
 {% extends 'include/base.html' %}
 {% block childblock %}
 {% load static %}
-<html>
-<head> 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<link rel="stylesheet" href="{% static 'css/features.css' %}"/>
-<link rel="stylesheet" href="{% static 'js/features.js' %}"/>
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<div class="col-md-12">
 
-</head>
-<body>
-<nav class="sidebar">
-  <header>
-      <div class="image-text">
-        <span class="image">
-          <img src="{%static 'image/featureimage.jpg' %}" alt="featureimage">
-        </span>
-        <div class="text header-text">
-          <span class="name">Features</span>
-          <span class="profession">Welcome</span>
-        </div>
-      </div>
-      <i class="fa-solid fa-forward toggle"></i>
-      
-  </header>
-  <div class="menubar">
-    <div class="menu">
-      <ul class="menulinks">
-        <li class="nav-link">
-            <a href="#">
-              <i class="fa-solid fa-book"></i>
-              <span class="text nav-text"></span>
-            </a>
-        </li>
-      </ul>
-    </div>
+  <div class="col-md-2">
+  <div class="sidebar">
+  <div class="logo-details">
+    <i class='bx bxl-c-plus-plus icon'></i>
+      <div class="logo_name">satyaprojs</div>
+      <i class='bx bx-menu' id="btn" ></i>
   </div>
-</nav>
-</body>  
-</html>
+  <ul class="nav-list">
+    <li>
+        <i class='bx bx-search' ></i>
+       <input type="text" placeholder="Search...">
+       <span class="tooltip">Search</span>
+    </li>
+    <li>
+      <a href="index1.html">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Features</span>
+      </a>
+       <span class="tooltip">Features</span>
+    </li>
+    <li>
+     <a href="#">
+       <i class='bx bx-user' ></i>
+       <span class="links_name">Top Lists</span>
+     </a>
+     <span class="tooltip">Top Lists</span>
+   </li>
+   <li>
+     <a href="#">
+       <i class='bx bx-chat' ></i>
+       <span class="links_name">Messages</span>
+     </a>
+     <span class="tooltip">Courses</span>
+   </li>
+   <li>
+     <a href="#">
+       <i class='bx bx-pie-chart-alt-2' ></i>
+       <span class="links_name">Projects</span>
+     </a>
+     <span class="tooltip">Project</span>
+   </li>
+   <li>
+     <a href="#">
+       <i class='bx bx-folder' ></i>
+       <span class="links_name">Department</span>
+     </a>
+     <span class="tooltip">Department</span>
+   </li>
+   <li>
+     <a href="#">
+       <i class='bx bx-cart-alt' ></i>
+       <span class="links_name">Exams</span>
+     </a>
+     <span class="tooltip">Exams</span>
+   </li>
+   <li>
+     <a href="#">
+       <i class='bx bx-heart' ></i>
+       <span class="links_name">Knowledge</span>
+     </a>
+     <span class="tooltip">Knowledge</span>
+   </li>
+   <li>
+     <a href="#">
+       <i class='bx bx-book' ></i>
+       <span class="links_name">E-Books</span>
+     </a>
+     <span class="tooltip">E-Books</span>
+   </li>
+
+  </ul>
+</div>
+</div>
+<div class="col-md-10">hello mitron</div>
+
+</div>
+
+<script>
+let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+let searchBtn = document.querySelector(".bx-search");
+closeBtn.addEventListener("click", ()=>{
+  sidebar.classList.toggle("open");
+  menuBtnChange();//calling the function(optional)
+});
+searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+  sidebar.classList.toggle("open");
+  menuBtnChange(); //calling the function(optional)
+});
+// following are the code to change sidebar button(optional)
+function menuBtnChange() {
+ if(sidebar.classList.contains("open")){
+   closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+ }else {
+   closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+ }
+}
+</script>
 {% endblock %}  

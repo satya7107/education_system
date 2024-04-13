@@ -142,3 +142,7 @@ def analyze(request):
 
     return render (request,'analyze.html',params)          
     
+
+def myprojects(request):
+    return render(request,'myprojects.html')
+
