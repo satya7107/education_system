@@ -13,9 +13,17 @@ height:170px;
 }
 body .carousel-indicator li{
 background-color: blue;
+
 }
+
 body .carousel-indicators{
-bottom: 0;
+bottom: -40px;
+}
+.carousel-indicators li {
+	background-color: red;
+}
+.carousel-indicators .active {
+	background-color: red;
 }
 body .carousel-control-prev-icon,
 body .carousel-control-next-icon{

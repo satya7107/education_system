@@ -1,7 +1,9 @@
 {% extends 'include/base.html' %}
 {% block childblock %}
 {% load static %}
-
+<script>
+  window.location="/shop";
+</script>
 <div class="jumbotron">
     <h1 class="display-4">Hello, world!</h1>
     <p class="lead">our best projects by using PYTHON, DJANGO, HTML, CSS, JAVASCRIPT, JQUERY, GITHUB, GIT, SQLITE3, MYSQL, POSTGRESQL</p>
@@ -15,6 +17,7 @@
         <a class="btn btn-primary btn-lg" href="/todo_app" role="button">todo</a>
       </p>
   </div>
+
 
 
 {% endblock %}

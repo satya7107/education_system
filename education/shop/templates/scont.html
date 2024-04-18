@@ -29,4 +29,16 @@
     </form>    
 
 </div>
+
+
+{% block js %}
+<script>
+{% if thank %}
+alert('thanks for contacting, we will get you back soon')
+
+{% endif %}
+</script>
+
+{% endblock %}
+
 {% endblock %}

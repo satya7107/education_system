@@ -37,6 +37,7 @@ def sabout(request):
 
 
 def scont(request):
+    thank=False
     if request.method == 'POST':
         name=request.POST.get('name','')
         email=request.POST.get('email','')
@@ -44,7 +45,8 @@ def scont(request):
         desc=request.POST.get('desc','')
         contobj=scontact(name=name,email=email,phone=phone,desc=desc)
         contobj.save()
-    return render(request,'scont.html')
+        thank=True
+    return render(request,'scont.html',{'thank':thank})
 
 
 def stracker(request):
@@ -59,7 +61,7 @@ def stracker(request):
                 updates=[]
                 for item in update:
                     updates.append({'text': item.update_desc, 'time':item.timestamp})
-                    response=json.dumps(updates,default=str)
+                    response=json.dumps([updates, order[0].items_json], default=str)
                 return HttpResponse(response)
             else:
                 return HttpResponse('{}') 
