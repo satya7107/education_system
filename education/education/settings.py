@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'todo_register',
     'shop',
     'blog',
+    'watchlist',
+    'watchmate',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

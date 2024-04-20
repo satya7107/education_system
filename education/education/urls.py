@@ -75,4 +75,7 @@ urlpatterns = [
     path('blog/',include('blog.urls')),
     path('myprojects/',anoviews.myprojects,name='myprojects'),
 
+    #api_course
+    path('watchmate/',include('watchmate.urls')),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
