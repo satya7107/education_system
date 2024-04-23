@@ -10,4 +10,6 @@ urlpatterns = [
             path('sproductview/<int:myid>/',sviews.sproductview,name='sproductview'),
             path('scheckout/',sviews.scheckout,name='scheckout'),
             path('sbase',sviews.sbase),
+            path('handlerequest',sviews.handlerequest,name='handlerequest'),
+            
 ]

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import products,scontact,sorder,order_update
 from math import ceil
 import json
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -87,13 +88,14 @@ def scheckout(request):
     if request.method == "POST":
         items_json=request.POST.get('itemJson','')
         name=request.POST.get('name','')
+        amount=request.POST.get('amount','')
         email=request.POST.get('email','')
         address=request.POST.get('address1','') + " " + request.POST.get('address2','')
         Zip_code=request.POST.get('Zip_code')
         state=request.POST.get('state','')
         city=request.POST.get('city','')
         phone=request.POST.get('phone','')
-        oborder=sorder(items_json=items_json,name=name,email=email,address=address,Zip_code=Zip_code,state=state,city=city,phone=phone)
+        oborder=sorder(items_json=items_json,name=name,amount=amount,email=email,address=address,Zip_code=Zip_code,state=state,city=city,phone=phone)
         oborder.save()
         updateobj=order_update(order_id=oborder.order_id, update_desc="Your order has been placed")
         updateobj.save()
@@ -101,7 +103,9 @@ def scheckout(request):
         mid=oborder.order_id
         return render(request, 'scheckout.html',{'thank':thank ,'mid':mid})
     return render(request, 'scheckout.html')
-
+@csrf_exempt
+def handlerequest(request):
+    return HttpResponse("handelrequest")
 
 def sbase(request):
     return render(request, 'sbase.html')
