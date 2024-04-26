@@ -67,6 +67,14 @@ urlpatterns = [
 
     path('signup',anoviews.signup),
 
+    #palindrome 
+    path('palin/',anoviews.palin, name="palin"),
+    path('palinto/',anoviews.palinto, name="palinto"),
+    path('palupdate/<int:pk>/',anoviews.palupdate , name="palupdate"),
+    path('<int:pk>/',anoviews.paldelete , name="paldelete"),
+    
+    
+
     #harry course
     path('mymain/',anoviews.mymain,name='mymain'),
     path('analyze/',anoviews.analyze,name='analyze'),

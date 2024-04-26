@@ -1,0 +1,17 @@
+{% extends 'include/base.html' %}
+
+{% load static %}
+{% block childblock %}
+
+<h1> palindrome or not check here</h1>
+<form method="post">
+{% csrf_token %}
+User name:-<input type="text" name= "myname">
+
+<button type="submit">Check</button>
+</form>
+{% if output is not None %}
+    <p>{% if output %}The name is a palindrome.{% else %}The name is not a palindrome.{% endif %}</p>
+{% endif %}
+
+{% endblock %}

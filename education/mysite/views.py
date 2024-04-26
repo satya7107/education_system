@@ -1,7 +1,8 @@
-from django.shortcuts import render,redirect
-from django.shortcuts import HttpResponse
+from django.shortcuts import render,redirect,get_object_or_404
+from django.http import HttpResponse,HttpResponseRedirect
 from .models import employee,student,user,all_experties,all_experties_ceo,all_experties_chanc,all_experties_prince,all_experties_vice,all_experties_fact
-from .models import main_register
+from .models import main_register,mypalin
+from django.urls import reverse
 # Create your views here.
 
 def index1(request):
@@ -146,3 +147,38 @@ def analyze(request):
 def myprojects(request):
     return render(request,'myprojects.html')
 
+def palin(request):
+    if request.method == 'POST':
+        myname=request.POST.get('myname','')
+        myname==myname.lower()
+        rev=myname[::-1]
+
+        if myname==rev:
+            active=True
+            mypalin.objects.create(myname=myname,active=active)
+            return HttpResponseRedirect(reverse('palin') + '?output=' + str(active))  # Redirect to the same page with output as query parameter
+        else:
+            active=False
+            mypalin.objects.create(myname=myname,active=active)
+            return HttpResponseRedirect(reverse('palin') + '?output=' + str(active))  # Redirect to the same page with output as query parameter
+    output = request.GET.get('output')
+    return render(request,'palin.html',{'output': output})
+
+def palinto(request):
+    palinob=mypalin.objects.filter(active=True)
+    palinobj=mypalin.objects.filter(active=False)
+        
+    data={
+        'palinob':palinob,
+        'palinobj':palinobj
+    }
+    return render(request,'palinto.html',data)
+
+def paldelete(request,pk):
+    palinobj=get_object_or_404(mypalin,pk=pk)
+
+    palinobj.delete()
+    return redirect('palinto')
+
+def palupdate(request,pk):
+    return HttpResponse("peac")

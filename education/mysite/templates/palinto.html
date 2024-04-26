@@ -1,0 +1,77 @@
+{%extends 'include/base.html'%}
+{% block childblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palin data</title>
+</head>
+<body>
+    <div class="container">
+        <h1>PALINDROME</h1>
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"> Name</th>
+            <th scope="col">Palindrome</th>
+            <th scope="col">Update/Delete</th>
+          </tr>
+        </thead>
+        {% for item in palinob %}
+        <tbody>
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{item.myname}}</td>
+            <td>{% if item.active %}
+            <i class="fa fa-check" ></i>
+          {% else %}
+            <i class="fa fa-times" ></i>
+          {% endif %}
+        </td>
+        <td>
+            <a href="#" class="btn btn-success"><i class="fa fa-pencil" ></i></a>
+            <a href="{% url 'paldelete' item.id %}" class="btn btn-danger"><i class="fa fa-trash" ></i></a>
+        </td>
+          </tr>
+          
+        </tbody>
+        {% endfor %}
+      </table>
+<h1>Non Palindrome</h1>
+      <table class="table table-warning">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"> Name</th>
+            <th scope="col">Non-Palindrome</th>
+            <th scope="col">Update/Delete</th>
+          </tr>
+        </thead>
+        {% for item1 in palinobj %}
+        <tbody>
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{item1.myname}}</td>
+            <td>
+                {% if item1.active %}
+                <i class="fa fa-check" ></i>
+              {% else %}
+                <i class="fa fa-times" ></i>
+              {% endif %}
+            </td>
+            <td>
+                <a href="#" class="btn btn-success"><i class="fa fa-pencil" ></i></a>
+                <a href="{% url 'paldelete' item1.id %}" class="btn btn-danger"><i class="fa fa-trash" ></i></a>
+            </td>
+          </tr>
+          
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+</body>
+</html>
+{% endblock %}

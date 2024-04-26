@@ -40,3 +40,11 @@ from .models import main_register
 class mregadmin(admin.ModelAdmin):
     list_display=('username','email','rollname','contact')
 admin.site.register(main_register,mregadmin)
+
+
+
+#mypalin
+from .models import mypalin
+class palinadmin(admin.ModelAdmin):
+    list_display=('myname','active')
+admin.site.register(mypalin,palinadmin)

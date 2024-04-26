@@ -108,4 +108,9 @@ class main_register(models.Model):
     def __str__(self):
         return self.username    
 
+class mypalin(models.Model):
+    myname = models.CharField(max_length=100)
+    active = models.BooleanField(default=False)
+    def __str__ (self):
+        return self.myname
 
