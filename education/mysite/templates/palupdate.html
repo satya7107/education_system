@@ -1,0 +1,20 @@
+{% extends 'include/base.html' %}
+{% block childblock %}
+{% load static %}
+
+<h3 class="pt-5 pb-5 text-center">Edit Now</h3>
+<center>
+
+<form action="{% url 'palupdate' get_palin.pk %}" method="POST"  style="width: 500px;">
+    {% csrf_token %}
+    <div class="form-group m-5">
+        <span style="display: flex;">
+            <input type="text" name="myname" class="form-control" placeholder="Edit task" value="{{ get_palin.myname }}">
+            <button type="submit" class="btn btn-primary" style="width: 100px; "><i class="fa fa-plus"></i> Update</button>
+        </span>
+    </div>
+</form>
+</center>
+
+
+{% endblock %}

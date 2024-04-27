@@ -181,4 +181,14 @@ def paldelete(request,pk):
     return redirect('palinto')
 
 def palupdate(request,pk):
-    return HttpResponse("peac")
+    get_palin=get_object_or_404(mypalin,pk=pk)
+    if request.method=="POST":
+        get_palin2=request.POST.get("myname", "")
+        get_palin.myname=get_palin2
+        get_palin.save()
+        return redirect('palinto')
+    else:
+        context={
+            'get_palin':get_palin
+        }    
+    return render(request,'palupdate.html',context)
